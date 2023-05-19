@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './HomePageInstrumentFile/Banner';
+import Gallery from './HomePageInstrumentFile/Gallery';
 
 const GroundHome = () => {
     return (
@@ -13,7 +14,7 @@ const GroundHome = () => {
 
 <h1 className='text-5xl text-center my-5 p-5 font-semibold'>Exploring the Enchanting World of Animal Toys: <br></br>A Captivating Gallery</h1>
 
-
+<Gallery />
 
 
 
