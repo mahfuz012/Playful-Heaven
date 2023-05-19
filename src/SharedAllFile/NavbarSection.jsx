@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../AuthProviderFile/AuthProvider';
 
 const NavbarSection = () => {
+  const {userID,LogoutItem} = useContext(AuthContext)
+  console.log(userID);
+
+  // const logoutbutton = () =>{
+  //   LogoutItem()
+  // }
+
+
+
+
     return (
         <div>
              <div className=" navbar bg-purple-100   border-b-4 border-b-purple-700 sm:justify-between">
@@ -40,14 +51,32 @@ const NavbarSection = () => {
  <ul style={{alignItems:'center'}} className="menu  menu-horizontal px-1">
 
 
-<li className='font-medium p-2 cursor-pointer hover:overline '>All Toys</li>
-<Link to={'/'}><li className='font-medium p-2 cursor-pointer hover:overline '>Home</li></Link>
-<li className='font-medium p-2 cursor-pointer hover:overline '>My Toys</li>
-<li className='font-medium p-2 cursor-pointer hover:overline '>Add A Toy</li>
-<Link to={'/blogs'}><li className='font-medium p-2 cursor-pointer hover:overline '>Blogs</li></Link>
-      
-<button className='btn bg-fuchsia-700 border-none sm:mx-2'>Login</button>
 
+ <Link to={'/'}><li className='font-medium p-2 cursor-pointer hover:overline '>Home</li></Link>
+<li className='font-medium p-2 cursor-pointer hover:overline '>All Toys</li>
+
+{
+  userID?<>
+  <li className='font-medium p-2 cursor-pointer hover:overline '>My Toys</li>
+<li className='font-medium p-2 cursor-pointer hover:overline '>Add A Toy</li>
+  </>:''
+}
+<Link to={'/blogs'}><li className='font-medium p-2 cursor-pointer hover:overline '>Blogs</li></Link>
+
+
+
+   {
+    userID?
+    <>
+    <div className="tooltip  tooltip-bottom tooltip-warning" data-tip={userID?.displayName}>
+    <img className='w-12 rounded-full mx-2 border p-1 border-black' src={userID.photoURL} />
+    </div>
+
+    <Link> <button onClick={LogoutItem} className='btn bg-fuchsia-700 border-none sm:mx-2'>Logout</button></Link>
+    </>
+    :
+    <Link to={'/login'}><button className='btn bg-fuchsia-700 border-none sm:mx-2'>Login</button></Link>
+   }
 
 </ul>
 

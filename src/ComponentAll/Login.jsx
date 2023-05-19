@@ -4,12 +4,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 import lf20_mjlh3hcy from "../SharedAllFile/lf20_mjlh3hcy.json";
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 
 
 const Login = () => {
 
-    const {LoginItem} = useContext(AuthContext)
+    const {LoginItem,googleuser} = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
     const location = useLocation()
     const navigation = useNavigate()
@@ -26,6 +27,14 @@ draggable: true,
 progress: undefined,
 theme: "colored",
         });
+
+
+const googleSubmit = () =>{
+    googleuser()
+}
+
+
+
 
 
 
@@ -87,9 +96,20 @@ const loginSubmituser =(e)=>{
                     <Link to={'/register'} className='font-bold text-xl mx-1 text-blue-700'> Registration</Link></p>
 
 
+<div className=''>
+
+    <button onClick={googleSubmit} className='btn bg-white text-black border border-purple-600'>
+    <FcGoogle className='me-2 text-2xl ' />
+        Google</button>
 
 
+</div>
             </form>
+
+
+
+
+
             </div>
 
             <div className=' sm:w-5/12 p-10'>
