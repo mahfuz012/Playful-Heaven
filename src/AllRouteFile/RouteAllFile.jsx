@@ -3,6 +3,8 @@ import Home from "../ComponentAll/Home";
 import ErrorHandle from "../ErrorHandleFile/ErrorHandle";
 import GroundHome from "../ComponentAll/GroundHome";
 import Blogs from "../ComponentAll/Blogs";
+import Register from "../ComponentAll/Register";
+import Login from "../ComponentAll/Login";
 
 
 
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
           {
             path:'/blogs',
             element:<Blogs />
+          },
+          {
+            path:'/login',
+            element:<Login />
+          },
+          {
+            path:'/register',
+            element:<Register />
           },
 
         
