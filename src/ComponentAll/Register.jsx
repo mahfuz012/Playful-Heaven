@@ -10,7 +10,7 @@ const Register = () => {
 
 const {RegisterItem} = useContext(AuthContext)
 const [passwordMatch,setmatchPassoword]= useState('')
-const [errormessege,setError]= useState('')
+
 
 
     const registerSubmitNow = (e) => {
@@ -34,13 +34,16 @@ const [errormessege,setError]= useState('')
             });
 
 
-
+            swal({
+                text: "successfully completed",
+                icon: "success",
+            });
 
 
         }).catch((error)=>{
           const errorNotice = error.message;
                     if (errorNotice) {
-                        swal("Oops!", "Something went wrong!", "error");
+                        swal("Oops!", "You are use same email!", "Try Another gmail");
 
                     }
         })
