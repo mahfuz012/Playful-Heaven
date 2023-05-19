@@ -1,19 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from '../SharedAllFile/groovyWalkAnimation.json'
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import swal from 'sweetalert';
+
+
+
+
 const Register = () => {
 
-const {RegisterItem} = useContext(AuthContext)
+const {RegisterItem,LogoutItem} = useContext(AuthContext)
 const [passwordMatch,setmatchPassoword]= useState('')
-
+const navigationFile = useNavigate()
 
 
     const registerSubmitNow = (e) => {
+        setmatchPassoword('')
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -35,10 +40,12 @@ const [passwordMatch,setmatchPassoword]= useState('')
 
 
             swal({
-                text: "successfully completed",
+                text: "successfully completed Registration",
                 icon: "success",
             });
 
+            LogoutItem()
+            navigationFile('/login')
 
         }).catch((error)=>{
           const errorNotice = error.message;
