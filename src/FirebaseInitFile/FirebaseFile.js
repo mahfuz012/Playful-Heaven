@@ -1,12 +1,17 @@
 
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyAR-Ykd1VcIG-q0RcvgLrN23FjIXHQ38Gs",
-  authDomain: "playful-heaven.firebaseapp.com",
-  projectId: "playful-heaven",
-  storageBucket: "playful-heaven.appspot.com",
-  messagingSenderId: "229837698522",
-  appId: "1:229837698522:web:ddb9db6faf98f83d027ce3"
+
+
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID
+
+
+
 };
 
 const app = initializeApp(firebaseConfig);
