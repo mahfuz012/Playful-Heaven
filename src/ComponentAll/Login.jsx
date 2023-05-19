@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 import lf20_mjlh3hcy from "../SharedAllFile/lf20_mjlh3hcy.json";
-
+import { toast } from 'react-toastify';
 
 
 
@@ -11,6 +11,22 @@ const Login = () => {
 
     const {LoginItem} = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
+    const location = useLocation()
+    const navigation = useNavigate()
+  const locationBack = location?.state?.from?.pathname || "/"
+
+
+    const notify = () => toast.success('Successfully Login', {
+        position: "top-center",
+autoClose: 2500,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+        });
+
 
 
 const loginSubmituser =(e)=>{
@@ -22,7 +38,9 @@ const loginSubmituser =(e)=>{
     LoginItem(email,password)
     .then((userCredit)=>{
         e.target.reset()
-
+          notify()
+        
+          navigation(locationBack, { replace: true })
 
 
     }).catch( (error) =>{

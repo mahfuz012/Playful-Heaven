@@ -32,6 +32,29 @@ const LogoutItem = () =>{
 
 
 
+useEffect(() => {
+    const unsubcribe = onAuthStateChanged(auth, currentUser => {
+        setuserID(currentUser)
+        setLoader(false)
+    })
+
+
+    return () => {
+        return unsubcribe()
+    }
+
+
+}, [])
+
+
+
+
+
+
+
+
+
+
 
 
 
