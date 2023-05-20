@@ -8,7 +8,7 @@ const Private = ({children}) => {
    const location = useLocation()
 
    if(userID){
-    return {children}
+    return children
    }
 
 if (loader) {

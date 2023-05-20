@@ -31,6 +31,8 @@ theme: "colored",
 
 const googleSubmit = () =>{
     googleuser()
+
+    navigation(locationBack, { replace: true })
 }
 
 
@@ -54,6 +56,7 @@ const loginSubmituser =(e)=>{
 
     }).catch( (error) =>{
                const errorCodes = error.code;
+          
                 if (errorCodes === "auth/wrong-password") {
                     setErrorMessage("password not match, please again")
                 } else if (errorCodes === "auth/user-not-found") {

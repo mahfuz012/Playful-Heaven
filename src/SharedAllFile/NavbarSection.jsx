@@ -53,14 +53,14 @@ const NavbarSection = () => {
 
 
  <Link to={'/'}><li className='font-medium p-2 cursor-pointer hover:overline '>Home</li></Link>
-<li className='font-medium p-2 cursor-pointer hover:overline '>All Toys</li>
+ <Link to={'/alltoys'}><li className='font-medium p-2 cursor-pointer hover:overline '>All Toys</li></Link>
 
-{
-  userID?<>
-  <li className='font-medium p-2 cursor-pointer hover:overline '>My Toys</li>
-<li className='font-medium p-2 cursor-pointer hover:overline '>Add A Toy</li>
-  </>:''
-}
+
+  <Link to={'/mytoys'}><li className='font-medium p-2 cursor-pointer hover:overline '>My Toys</li></Link>
+
+<Link to={'/addtoys'}><li className='font-medium p-2 cursor-pointer hover:overline '>Add A Toy</li></Link>
+
+
 <Link to={'/blogs'}><li className='font-medium p-2 cursor-pointer hover:overline '>Blogs</li></Link>
 
 

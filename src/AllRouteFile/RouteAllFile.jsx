@@ -5,6 +5,11 @@ import GroundHome from "../ComponentAll/GroundHome";
 import Blogs from "../ComponentAll/Blogs";
 import Register from "../ComponentAll/Register";
 import Login from "../ComponentAll/Login";
+import Mytoys from "../ComponentAll/Mytoys";
+import Addtoys from "../ComponentAll/Addtoys";
+import AllToys from "../ComponentAll/AllToys";
+import DetailsToys from "../ComponentAll/DetailsToys";
+import Private from "../PrivateRouteFile/Private";
 
 
 
@@ -34,6 +39,22 @@ const router = createBrowserRouter([
           {
             path:'/register',
             element:<Register />
+          },
+          {
+            path:'/mytoys',
+            element:<Private> <Mytoys /> </Private>
+          },
+          {
+            path:'/addtoys',
+            element:<Private>  <Addtoys /></Private>
+          },
+          {
+            path:'/alltoys',
+            element:<AllToys />
+          },
+          {
+            path:'/singleDetails',
+            element: <Private> <DetailsToys /></Private>
           },
 
         
