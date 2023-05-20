@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 
 
@@ -7,22 +7,55 @@ const Addtoys = () => {
 const {userID} = useContext(AuthContext)
 
 
-  const array = ['teddy', 'bear', 'horse', 'dinosaur', 'dogs', 'cat',' unicorn', 'cows']
+  const array = ['Teddy Bears', 'Dinosaur', 'Magical Unicorn']
 
 const addtoyssubmit =(e)=>{
     e.preventDefault()
  
-const url = e.target.url.value
-const name = e.target.name.value
-const email = e.target.email.value
-const rating = e.target.rating.value
-const option = e.target.option.value
-const sellername = e.target.sellername.value
+const image_url = e.target.url.value
+const Name = e.target.name.value
+const seller_email = e.target.email.value
+const Rating = e.target.rating.value
+const Sub_category  = e.target.option.value
+const seller_name = e.target.sellername.value
+const Available_quantity = e.target.quantity.value
+const Price= e.target.price.value
+const Detail_description = e.target.description.value
 
 const price = e.target.price.value
 e.target.reset()
-console.log(url,name,email, rating,option,sellername,price)
+console.log({image_url,
+  Name,
+  seller_email,
+  Rating,
+  Sub_category,
+  seller_name,
+  Available_quantity,
+  Price,
+  Detail_description})
+const userDetailsData= {image_url,
+  Name,
+  seller_email,
+  Rating,
+  Sub_category,
+  seller_name,
+  Available_quantity,
+  Price,
+  Detail_description}
 
+
+fetch('http://localhost:5000/userdata', {
+    method:'POST',
+    headers:{
+        'content-type': 'application/json'
+    },
+    body:JSON.stringify(userDetailsData)
+    
+}) .then(res => res.json())
+.then(data =>{
+    e.target.reset()
+    console.log(data)
+})
 
 
 
@@ -106,16 +139,32 @@ console.log(url,name,email, rating,option,sellername,price)
 
   <div className="mb-4">
     <label className="block text-purple-700 text-sm font-bold mb-2" >Price:</label>
-    <input className="focus:shadow-purple-600 focus:shadow-md shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name='price'  type="number" placeholder="Enter price" required />
+    <input className="focus:shadow-purple-600 focus:shadow-md shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name='price'  type="number"  placeholder="Enter price" required />
   </div>
   <div className="mb-4">
     <label className="block text-purple-700 text-sm font-bold mb-2">Rating:</label>
 
     <input className="focus:shadow-purple-600 focus:shadow-md shadow appearance-none border 
-    rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name='rating'  type="number" step="1" min="0" max="5" placeholder="Enter rating" required />
+    rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name='rating'  type="number"  min="1" max="5" placeholder="Enter rating" required />
   </div>
 
-<input className='w-2/4 mx-auto btn bg-purple-700 border-none my-6' value="Submit add items" type='submit'></input>
+<div>
+    <label className="block text-purple-700 text-sm font-bold mb-2">Available quantity:</label>
+
+    <input className="focus:shadow-purple-600 focus:shadow-md shadow appearance-none border 
+    rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name='quantity'  type="number"  min="1" max="10" placeholder="Enter Quantity" required />
+  </div>
+
+<div>
+<textarea placeholder='Type Detail description' name='description' className='my-5 sm:my-0 focus:outline-none focus:shadow-purple-600 focus:shadow-md p-5 border-2' rows="2" cols="73" 
+style={{resize:"vertical"}}
+></textarea>
+</div>
+
+<br></br>
+
+
+<input className='w-2/4  btn bg-purple-700 sm:w-4/6 border-none my-6' value="Submit add items" type='submit'></input>
 
 </form>
 

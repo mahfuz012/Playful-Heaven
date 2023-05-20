@@ -69,7 +69,7 @@ const NavbarSection = () => {
     userID?
     <>
     <div className="tooltip  tooltip-bottom tooltip-warning" data-tip={userID?.displayName}>
-    <img className='w-12 rounded-full mx-2 border p-1 border-black' src={userID.photoURL} />
+    <img className='w-12 rounded-full mx-2 border-purple-700 border-2 p-1 ' src={userID.photoURL} />
     </div>
 
     <Link> <button onClick={LogoutItem} className='btn bg-fuchsia-700 border-none sm:mx-2'>Logout</button></Link>
