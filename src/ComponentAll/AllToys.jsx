@@ -50,8 +50,10 @@ function AllData({data,index}){
 
         <tr className='text-center '>
         <td className='border-purple-200 font-semibold'>{index+1}</td>
-        <td className='border-purple-200 font-semibold'>{Name}</td>
         <td className='border-purple-200 font-semibold'>{seller_name}</td>
+        <td className='border-purple-200 font-semibold'>{Name}</td>
+      
+        
         <td className='border-purple-200 font-semibold'>{Sub_category}</td>
         <td className='border-purple-200 font-semibold'>{Price}</td>
         <td className='border-purple-200 font-semibold'>{Available_quantity}</td>

@@ -10,6 +10,7 @@ import Addtoys from "../ComponentAll/Addtoys";
 import AllToys from "../ComponentAll/AllToys";
 import DetailsToys from "../ComponentAll/DetailsToys";
 import Private from "../PrivateRouteFile/Private";
+import Update from "../ComponentAll/Update";
 
 
 
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
           {
             path:'/singleDetails/:id',
             element: <Private> <DetailsToys /></Private>,
+            loader:({params})=>fetch(`http://localhost:5000/singledata/${params.id}`)
+          },
+          {
+            path:'/update/:id',
+            element: <Private> <Update /> </Private>,
             loader:({params})=>fetch(`http://localhost:5000/singledata/${params.id}`)
           },
 
