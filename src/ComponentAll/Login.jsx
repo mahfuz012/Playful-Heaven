@@ -30,9 +30,11 @@ theme: "colored",
 
 
 const googleSubmit = () =>{
-    googleuser()
-
-    navigation(locationBack, { replace: true })
+    googleuser().then(()=>{
+     navigation(locationBack, { replace: true })
+    }).catch(error=>{
+        console.log(error);
+    })
 }
 
 
