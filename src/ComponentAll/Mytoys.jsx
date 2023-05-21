@@ -12,7 +12,7 @@ const array = ['Teddy Bears', 'Dinosaur', 'Magical Unicorn']
 
 useEffect(()=>{
     if(userID){
-        fetch(`http://localhost:5000/finddata?seller_email=${getEmailId}`,)
+        fetch(`https://playful-heaven.vercel.app/finddata?seller_email=${getEmailId}`,)
         .then(res=>res.json())
         .then(data=>setdata(data))
     }

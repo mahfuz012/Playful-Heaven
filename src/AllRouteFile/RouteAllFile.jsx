@@ -52,18 +52,18 @@ const router = createBrowserRouter([
           {
             path:'/alltoys',
             element:<AllToys />,
-            loader:()=> fetch(`http://localhost:5000/userdata`)
+            loader:()=> fetch(`https://playful-heaven.vercel.app/userdata`)
             
           },
           {
             path:'/singleDetails/:id',
             element: <Private> <DetailsToys /></Private>,
-            loader:({params})=>fetch(`http://localhost:5000/singledata/${params.id}`)
+            loader:({params})=>fetch(`https://playful-heaven.vercel.app/${params.id}`)
           },
           {
             path:'/update/:id',
             element: <Private> <Update /> </Private>,
-            loader:({params})=>fetch(`http://localhost:5000/singledata/${params.id}`)
+            loader:({params})=>fetch(`https://playful-heaven.vercel.app/${params.id}`)
           },
 
         

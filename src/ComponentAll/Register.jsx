@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Lottie from "lottie-react";
 import groovyWalkAnimation from '../SharedAllFile/groovyWalkAnimation.json'
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import swal from 'sweetalert';
-
+import Lottie from "lottie-react";
 
 
 

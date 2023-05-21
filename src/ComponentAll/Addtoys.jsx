@@ -22,7 +22,7 @@ const Available_quantity = e.target.quantity.value
 const Price= e.target.price.value
 const Detail_description = e.target.description.value
 
-const price = e.target.price.value
+
 e.target.reset()
 console.log({image_url,
   Name,

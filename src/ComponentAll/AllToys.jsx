@@ -6,7 +6,7 @@ const AllToys = () => {
 
 const getData = useLoaderData()
 
-
+console.log(getData);
 
 
 
@@ -45,7 +45,7 @@ const getData = useLoaderData()
 
 
 function AllData({data,index}){
- const {_id,seller_name,Name,Sub_category,Price,Available_quantity,}  = data
+ const {_id,seller_name,Name,Sub_category,Price,Available_quantity}  = data
     return(
 
         <tr className='text-center '>
