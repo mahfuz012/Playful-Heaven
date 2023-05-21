@@ -1,9 +1,12 @@
 
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
+import useTitle from '../hooks/useTitles';
+import swal from 'sweetalert';
 
 
 const Addtoys = () => {
+  useTitle('Pheaven | AddToy')
 const {userID} = useContext(AuthContext)
 
 
@@ -44,7 +47,7 @@ const userDetailsData= {image_url,
   Detail_description}
 
 
-fetch('http://localhost:5000/userdata', {
+fetch('https://playful-heaven.vercel.app/userdata', {
     method:'POST',
     headers:{
         'content-type': 'application/json'
@@ -54,6 +57,7 @@ fetch('http://localhost:5000/userdata', {
 }) .then(res => res.json())
 .then(data =>{
     e.target.reset()
+    swal("Data  has been added !", "success");
     console.log(data)
 })
 

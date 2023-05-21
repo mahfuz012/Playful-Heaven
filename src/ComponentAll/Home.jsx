@@ -5,11 +5,12 @@ import { Outlet } from 'react-router-dom';
 import HeavyFooter from '../SharedAllFile/HeavyFooter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../hooks/useTitles';
 
 
 
 const Home = () => {
-
+  useTitle('Pheaven | Home')
 
 
     return (

@@ -5,11 +5,12 @@ import Lottie from "lottie-react";
 import lf20_mjlh3hcy from "../SharedAllFile/lf20_mjlh3hcy.json";
 import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
+import useTitle from '../hooks/useTitles';
 
 
 
 const Login = () => {
-
+  useTitle('Pheaven | login')
     const {LoginItem,googleuser} = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
     const location = useLocation()

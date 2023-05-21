@@ -2,11 +2,31 @@ import React from 'react';
 import Banner from './HomePageInstrumentFile/Banner';
 import Gallery from './HomePageInstrumentFile/Gallery';
 import Faq from './HomePageInstrumentFile/Faq';
+import Swipper from './HomePageInstrumentFile/Swipper';
+
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import TeddyBears from '../TabFilesAdd/TeddyBears';
+import Dinosourse from '../TabFilesAdd/Dinosourse';
+import Magical from '../TabFilesAdd/Magical';
+import useTitle from '../hooks/useTitles';
+
+
+
+
+
+
+
+
+
+
+
 
 const GroundHome = () => {
+  useTitle('Pheaven | Home')
     return (
-        <div className=' border border-red-800'>
-         <div className=' border border-red-700'>  
+        <div className='  '>
+         <div className=' '>  
         <Banner />
         </div> 
 
@@ -18,7 +38,34 @@ const GroundHome = () => {
 </div>
 </div>
 
-<p className='text-center font-bold text-5xl text-indigo-700'>Sneak Peek: Exciting Upcoming Toys!</p>
+
+
+
+<p className='text-purple-800 my-10 font-bold text-center sm:text-5xl'>Shop by category-</p>
+<div className=''>
+<Tabs className="">
+    <TabList className="text-center p-5 font-bold text-2xl">
+      
+      <Tab >Teddy Bears</Tab>
+      <Tab >Dinosaur</Tab>
+      <Tab >Magical Unicorn</Tab>
+    </TabList>
+
+    <TabPanel className="border">
+<TeddyBears />
+</TabPanel>
+
+
+    <TabPanel>
+   <Dinosourse />
+    </TabPanel>
+    <TabPanel>
+ <Magical />
+    </TabPanel>
+
+
+  </Tabs>
+</div>
 
 
 
@@ -27,9 +74,18 @@ const GroundHome = () => {
 
 
 
+<p className='bg-violet-600 py-5 mt-20 px-5 sm:px-0 text-center font-bold text-2xl sm:text-5xl text-white'>Sneak Peek: Exciting Upcoming Toys!</p>
+
+<Swipper />
 
 
-<p className='text-center font-bold text-3xl mt-11 text-violet-700 mb-5'>Frequently Asked Questions (FAQ)</p>
+
+
+
+
+
+
+<p className='text-center  font-bold text-3xl sm:mt-32 text-violet-700 mb-5'>Frequently Asked Questions (FAQ)</p>
 <Faq />
 
 

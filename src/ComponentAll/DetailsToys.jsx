@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const DetailsToys = () => {
     const getId = useLoaderData();
+  
    const {image_url,
     Name,
     seller_email,

@@ -6,7 +6,7 @@ import { FaSnapchat, FaInstagram,FaTelegram, FaTwitter, FaWhatsapp,FaFacebook, }
 const HeavyFooter = () => {
     return (
     
-    <div className=" lg:text-left">
+    <div className=" lg:text-left sm:mt-20">
 
      
 

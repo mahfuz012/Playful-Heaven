@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProviderFile/AuthProvider';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import useTitle from '../hooks/useTitles';
 
 
 const Mytoys = () => {
+  useTitle('Pheaven | MyToy')
 const {userID} = useContext(AuthContext)
 const getEmailId= userID?.email;
 const [data,setdata] = useState([])
@@ -39,7 +41,7 @@ function deletesubmit(props){
     if (willDelete) {
       
         
-fetch(`http://localhost:5000/delete/${props}`,{
+fetch(`https://playful-heaven.vercel.app/deletedata/${props}`,{
   method:'DELETE'
 })
 .then(res=>res.json())

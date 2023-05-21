@@ -6,11 +6,12 @@ import { updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import swal from 'sweetalert';
 import Lottie from "lottie-react";
+import useTitle from '../hooks/useTitles';
 
 
 
 const Register = () => {
-
+    useTitle('Pheaven | Register')
 const {RegisterItem,LogoutItem} = useContext(AuthContext)
 const [passwordMatch,setmatchPassoword]= useState('')
 const navigationFile = useNavigate()

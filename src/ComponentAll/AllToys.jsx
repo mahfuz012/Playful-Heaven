@@ -1,19 +1,86 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FcUndo } from 'react-icons/fc';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../hooks/useTitles';
+import { useState } from 'react';
 
 const AllToys = () => {
 
-const getData = useLoaderData()
+  useTitle('Pheaven | AllToy')
+ 
 
-console.log(getData);
+  
+// const data = useLoaderData()
+const [data,setdata] = useState([])
+
+useEffect(()=>{
+  fetch(`https://playful-heaven.vercel.app/userdata`)
+  .then(res=>res.json())
+  .then(data=>setdata(data))
+},[])
 
 
 
 
+
+const [textdata,setText] = useState([])
+
+useEffect(()=>{
+fetch(`https://playful-heaven.vercel.app/namedata?Name=${textdata}`,)
+      .then(res=>res.json())
+      .then(data=>setdata(data))
+  
+
+},[textdata])
+
+
+
+
+function clicksearchitems(e){
+e.preventDefault()
+const text= e.target.text.value
+setText(text)
+}
+
+
+const sortAscending = () => {
+  fetch('https://playful-heaven.vercel.app/finddata?sort=ascending')
+    .then((res) => res.json())
+    .then((data) => setdata(data));
+};
+
+const sortDescending = () => {
+  fetch('https://playful-heaven.vercel.app/finddata?sort=descending')
+    .then((res) => res.json())
+    .then((data) => setdata(data));
+};
+
+useEffect(() => {
+ 
+  setdata(data);
+}, [data]);
 
     return (
         <div className='container p-5'>
+
+
+<div className='sm:flex sm:justify-evenly'>
+<div style={{alignItems:"center"}} className='flex'>
+  <p className='font-bold text-purple-800'>Data Find : </p>
+  <form onSubmit={clicksearchitems}>
+  <input name='text' type='text' className='mx-2 border p-2 rounded-xl' placeholder='search your Toy Name' />
+  <input type='submit' className='btn bg-purple-700' />
+  </form>
+ </div>
+ 
+<div>
+  <button onClick={sortAscending} className='border-none mx-2 btn bg-blue-600'>ascending </button>
+  <button onClick={sortDescending} className='border-none mx-2 btn bg-green-600'>descending </button>
+</div>
+</div>
+
+
+
             <div className="overflow-x-auto">
   <table className="table w-full my-20 border-2 border-purple-800">
 
@@ -32,7 +99,7 @@ console.log(getData);
 <tbody>
     
   {
-    getData.map((p,index)=><AllData key={index} index={index} data={p}/>)
+    data.map((p,index)=><AllData key={index} index={index} data={p}/>)
   }
       </tbody>
       

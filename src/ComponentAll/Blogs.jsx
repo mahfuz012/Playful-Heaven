@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../hooks/useTitles';
 
 const Blogs = () => {
+  useTitle('Pheaven | Blog')
     return (
         <div className='container-fuild my-5'>
 

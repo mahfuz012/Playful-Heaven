@@ -10,7 +10,7 @@ const Banner = () => {
   <h1 style={{fontFamily:"sans-serif"}} 
   className='text-8xl mt-5 text-white font-bold my-2'>Roar into Fun!</h1>
   <p className='text-5xl text-white '>Discover the Wild World of
-   <span className='mx-5 italic font-bold text-pink-800 text-yellow-300'>Animal</span></p>
+   <span className='mx-5 italic font-bold text-yellow-300'>Animal</span></p>
    <p className='text-7xl  sm:w-2/4 flex justify-center p-1 bg-purple-600 uppercase my-5 font-bold text-white rounded-full'> Toys</p>
 
         </div>

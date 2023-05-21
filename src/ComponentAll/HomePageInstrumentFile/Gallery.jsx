@@ -71,7 +71,7 @@ const Gallery = () => {
 
     allPicture.map(p=>
         
-    <img data-aos={p.animation} data-aos-offset="200" data-aos-easing={p.easing} data-aos-duration="800" className='w-screen sm:h-5/6 border p-3 m-2 border-purple-600 border-4' src={p.url} />
+    <img data-aos={p.animation} data-aos-offset="200" data-aos-easing={p.easing} data-aos-duration="800" className='overflow-hidden w-screen sm:h-5/6 border p-3 m-2 border-purple-600 border-4' src={p.url} />
 
         
  )
